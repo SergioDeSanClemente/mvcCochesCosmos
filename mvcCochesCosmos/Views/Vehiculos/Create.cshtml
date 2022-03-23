@@ -1,0 +1,74 @@
+﻿@model mvcCochesCosmos.Models.Vehiculo
+
+@{ViewData["Title"] = "Create";
+}
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            $("#existemotor").click(function () {
+                $("#capamotor").toggle();
+            });
+        });
+    </script>
+}
+
+<h1>Create</h1>
+
+<h4>Vehiculo</h4>
+<hr />
+<form asp-action="Create">
+    <div class="row" style="float:left">
+        <div class="col-md-4">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+            </div>
+            <div class="form-group">
+                <label asp-for="Id" class="control-label">
+                </label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger">
+                </span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Marca" class="control-label">
+                </label>
+                <input asp-for="Marca" class="form-control" />
+                <span asp-validation-for="Marca" class="text-danger">
+                </span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modelo" class="control-label">
+                </label>
+                <input asp-for="Modelo" class="form-control" />
+                <span asp-validation-for="Modelo" class="text-danger">
+                </span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VelocidadMaxima" class="control-label">
+                </label>
+                <input asp-for="VelocidadMaxima" class="form-control" />
+                <span asp-validation-for="VelocidadMaxima" class="text-danger">
+                </span>
+            </div>
+            <input type="checkbox" name="existemotor" id="existemotor" class="form-control" value="true" />Vehículo de motor
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+
+        </div>
+    </div>
+    <div id="capamotor" style="float:left;display:none">
+        <label>Tipo de motor: </label>
+        <input type="text" name="Motor.Tipo" class="form-control" /><br />
+        <label>Caballos: </label>
+        <input type="text" name="Motor.Caballos" class="form-control" /><br />
+        <label>Cilindrada: </label>
+        <input type="text" name="Motor.Cilindrada" class="form-control" /><br />
+        <label>Turbo: </label>
+        <input type="checkbox" name="Motor.Turbo" class="form-control" value="true" /><br />
+    </div>
+    <div>
+        <a asp-action="Coches">Back to List</a>
+    </div>
+</form>
